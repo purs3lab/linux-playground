@@ -12,6 +12,9 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./sources:/sources   
+      - ./sources:/sources
+      - ./scripts:/scripts
+      - ./demos:/demos
+      - ./:/repo   
     environment:
       - VERSION=0.1
