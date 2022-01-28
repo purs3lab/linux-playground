@@ -1,6 +1,9 @@
-FROM ubuntu:groovy
+FROM ubuntu:20.04
 
-RUN echo "rebuild n.2"
+# Setup timezone for avoid tzdata hang
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt-get update
 RUN apt-get install -y wget git qemu-system qemu-utils python3 python3-pip \
         gcc libelf-dev libssl-dev bc flex bison vim bzip2  cpio

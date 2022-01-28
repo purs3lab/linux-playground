@@ -18,3 +18,4 @@ services:
       - ./:/repo   
     environment:
       - VERSION=0.1
+    entrypoint: ["/bin/bash"]
