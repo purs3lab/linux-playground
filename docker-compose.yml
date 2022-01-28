@@ -1,0 +1,17 @@
+version: "2.3"
+
+services:
+  playground:
+    build:
+      context: ./
+      network: host
+    ports:
+      - "5900:5900"
+      - "6000:6000"
+      - "8080:8080"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./sources:/sources   
+    environment:
+      - VERSION=0.1
