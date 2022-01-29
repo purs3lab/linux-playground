@@ -15,7 +15,7 @@
 		"2gua.rainbow-brackets"
 	],
   
-    "forwardPorts": [5900, 6000, 8080],
+    "forwardPorts": [5900, 6000],
   
     "postCreateCommand": "/bin/bash",
 }

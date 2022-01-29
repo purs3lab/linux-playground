@@ -16,10 +16,16 @@ RUN wget https://busybox.net/downloads/busybox-1.32.1.tar.bz2
 RUN tar xvjf busybox-1.32.1.tar.bz2
 
 # Setup GEF
-RUN bash -c "$(curl -fsSL http://gef.blah.cat/sh)"
+RUN wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py 
+RUN echo source ~/.gdbinit-gef.py >> ~/.gdbinit
 
 # initial build, so as to speed up development
 COPY ./scripts/build-k.sh /sources
 RUN /sources/build-k.sh
+
+# Setup vscode stuff
+WORKDIR /sources/linux
+RUN git clone https://github.com/amezin/vscode-linux-kernel.git .vscode
+RUN python3 .vscode/generate_compdb.py
 
 WORKDIR /scripts
