@@ -6,7 +6,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update
 RUN apt-get install -y wget git qemu-system qemu-utils python3 python3-pip \
-        gcc libelf-dev libssl-dev bc flex bison vim bzip2 cpio gdb
+        gcc libelf-dev libssl-dev bc flex bison vim bzip2 cpio gdb curl
 
 # Download kernel
 RUN mkdir -p /sources
