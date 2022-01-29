@@ -1,0 +1,17 @@
+//devcontainer.json
+{
+    "name": "Linux Playground",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "playground",
+    "workspaceFolder": "/scripts",
+  
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+  
+    "extensions": ["ms-vscode.cpptools"],
+  
+    "forwardPorts": [3000],
+  
+    "postCreateCommand": "/bin/bash",
+}
