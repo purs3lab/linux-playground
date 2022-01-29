@@ -12,7 +12,6 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./sources:/sources
       - ./scripts:/scripts
       - ./demos:/demos
       - ./:/repo   
