@@ -16,10 +16,6 @@ RUN git clone --depth=1 https://git.kernel.org/pub/scm/linux/kernel/git/stable/l
 RUN wget https://busybox.net/downloads/busybox-1.32.1.tar.bz2
 RUN tar xvjf busybox-1.32.1.tar.bz2
 
-# Setup GEF
-RUN wget -O /root/.gdbinit-gef.py -q http://gef.blah.cat/py 
-RUN echo -e "source /root/.gdbinit-gef.py\ntarget remote:1234" >> /root/.gdbinit
-
 # initial build, so as to speed up development
 COPY ./scripts/build-k.sh /sources
 RUN /sources/build-k.sh
@@ -41,9 +37,21 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Setup GEF
+RUN wget -O /root/.gdbinit-gef.py -q http://gef.blah.cat/py 
+RUN echo source /root/.gdbinit-gef.py >> /root/.gdbinit
+RUN echo target remote :1234 >> /root/.gdbinit
+ENV LC_CTYPE=C.UTF-8
+ENV LANG=C.UTF-8
+
+# Build the FS
+WORKDIR /sources
+COPY ./scripts/build-fs.sh /sources
+RUN /sources/build-fs.sh
+
 # Setup vscode stuff
 WORKDIR /sources/linux
-RUN git clone https://github.com/amezin/vscode-linux-kernel.git .vscode
+RUN git clone --depth=1 https://github.com/amezin/vscode-linux-kernel.git .vscode
+RUN rm -rf .vscode/.git
 RUN python3 .vscode/generate_compdb.py
 COPY .vscode/tasks.json .vscode/tasks.json
-

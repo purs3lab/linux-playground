@@ -2,7 +2,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            // Builds the entire Linux kernel using several parallel jobs.
             "label": "build",
             "type": "shell",
             "command": "/scripts/build-k.sh",
@@ -13,7 +12,6 @@
             }
         }, 
         {
-            // Builds the entire Linux kernel using several parallel jobs.
             "label": "build-fs",
             "type": "shell",
             "command": "/scripts/build-fs.sh",
@@ -21,7 +19,7 @@
             "group": "build",
         }, 
         { 
-            "label": "Start Kernel in QEMU",
+            "label": "(normal) Start Kernel in QEMU",
             "type": "process",
             "command": "qemu-system-x86_64",
             "args": [
@@ -77,6 +75,16 @@
                 "panel": "dedicated",
             }
 
-        } 
+        },
+        {
+            "label": "(Advanced) Generate compile_commands.json",
+            "type": "process",
+            "command": "python",
+            "args": [
+                "${workspaceRoot}/.vscode/generate_compdb.py"
+            ],
+            "problemMatcher": []
+        }
+    ]
     ]
 }
