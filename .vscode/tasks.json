@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // Builds the entire Linux kernel using several parallel jobs.
+            "label": "build",
+            "type": "shell",
+            "command": "/scripts/build-k.sh",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }, 
+        {
+            // Builds the entire Linux kernel using several parallel jobs.
+            "label": "build-fs",
+            "type": "shell",
+            "command": "/scripts/build-fs.sh",
+            "problemMatcher": [],
+            "group": "build",
+        },  
+    ]
+}
