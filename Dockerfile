@@ -39,9 +39,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
 
 # Setup GEF
 RUN wget -O /root/.gdbinit-gef.py -q http://gef.blah.cat/py 
-RUN echo source /root/.gdbinit-gef.py >> /root/.gdbinit
-RUN echo source /source/linux/vmlinux-gdb.py >> /root/.gdbinit
-RUN echo target remote :1234 >> /root/.gdbinit
+COPY ./scripts/.gdbinit /root/.gdbinit
 ENV LC_CTYPE=C.UTF-8
 ENV LANG=C.UTF-8
 
@@ -56,3 +54,4 @@ RUN git clone --depth=1 https://github.com/amezin/vscode-linux-kernel.git .vscod
 RUN rm -rf .vscode/.git
 RUN python3 .vscode/generate_compdb.py
 COPY .vscode/tasks.json .vscode/tasks.json
+COPY .vscode/launch.json .vscode/launch.json
