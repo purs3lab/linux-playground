@@ -3,7 +3,7 @@
     "name": "Linux Playground",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "playground",
-    "workspaceFolder": "/repo",
+    "workspaceFolder": "/sources/linux",
   
     "settings": {
       "terminal.integrated.shell.linux": "/bin/bash"

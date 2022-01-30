@@ -45,5 +45,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
 WORKDIR /sources/linux
 RUN git clone https://github.com/amezin/vscode-linux-kernel.git .vscode
 RUN python3 .vscode/generate_compdb.py
+COPY .vscode/tasks.json .vscode/tasks.json
 
-WORKDIR /scripts
