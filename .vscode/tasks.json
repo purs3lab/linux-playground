@@ -22,6 +22,7 @@
             "label": "(normal) Start Kernel in QEMU",
             "type": "process",
             "command": "qemu-system-x86_64",
+            "problemMatcher": [],
             "args": [
                 "-smp",
                 "4",
@@ -43,6 +44,7 @@
             "label": "(debug) Start Kernel in QEMU",
             "type": "process",
             "command": "qemu-system-x86_64",
+            "problemMatcher": [],
             "args": [
                 "-s",
                 "-S",
@@ -66,6 +68,7 @@
             "label": "(debug) Start GDB",
             "type": "shell",
             "command": "gdb", 
+            "problemMatcher": [],
             "args": [
                 "/sources/linux/vmlinux",
             ],
