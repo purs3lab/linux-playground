@@ -2,37 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            // Use this launch configuration first to run QEMU using the
-            // kernel built at the previous step. It will also automatically
-            // invoke the build process before running, so you can just
-            // start this launch configuration whenever you are done typing
-            // code and it will automatically do everything for you.
-            "name": "(gdb) Start Kernel in QEMU",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "/bin/qemu-system-x86_64",
-            // Do not fiddle with these arguments if you do not know
-            // what you're doing!
-            "args": [
-                "-s",
-                "-S",
-                "-smp",
-                "4",
-                "-kernel",
-                "/sources/linux/arch/x86_64/boot/bzImage",
-                "-append",
-                "nokaslr",
-                "-initrd",
-                "/staging/initramfs-busybox-x86.cpio.gz",
-                "-nographic"
-            ],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "preLaunchTask": "${defaultBuildTask}",
-        },
-        {
             // Once the previous launch succeeded and you see on screen the
             // QEMU window waiting for the debugger, run this configuration,
             // which will attach the visual debugger of VS Code to your
