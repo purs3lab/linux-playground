@@ -27,3 +27,15 @@ Building the kernel is setup as the default build task. You can use the build sh
 You can also start the build from the command palette by typing:
 ``` Tasks: Run Build Task ```
 
+## Debug the kernel
+
+To debug the kernel, you need to first start the kernel in QEMU on debug mode. This is done by bringing up the command palette and typing:
+``` Tasks: Run Task ```
+
+Which should give you a prompt with multiple options. Select the `(debug) Start Kernel in QEMU` option. This should open up a new console where the Kernel is running.
+If there are no errors, and you see no output on the console that means that kernel is waiting for the GDB stub to be connected.
+
+Now, debugging the kernel is done using GDB (We use a modified version called GEF, which is a enhanced fork of GDB). To start the debugger you need to again open the command palette and type: 
+``` Tasks: Run Task ```
+
+Now from the prompt you need to select the `(debug) Start GDB` option. This should open up a new console where the debugger is running.
