@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 
 # Setup timezone for avoid tzdata hang
 ENV TZ=America/New_York
+ENV PYTHONIOENCODING=utf8
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update
@@ -16,12 +17,29 @@ RUN wget https://busybox.net/downloads/busybox-1.32.1.tar.bz2
 RUN tar xvjf busybox-1.32.1.tar.bz2
 
 # Setup GEF
-RUN wget -O ~/.gdbinit-gef.py -q http://gef.blah.cat/py 
-RUN echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+RUN wget -O /root/.gdbinit-gef.py -q http://gef.blah.cat/py 
+RUN echo source /root/.gdbinit-gef.py >> /root/.gdbinit
 
 # initial build, so as to speed up development
 COPY ./scripts/build-k.sh /sources
 RUN /sources/build-k.sh
+
+# Qemu-KVM, needed for testing kernels inside a VM
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
+    && apt-get -y install \
+    iptables \
+    libgl1-mesa-dri \
+    libgl1-mesa-glx \
+    libvirt-daemon-system \
+    qemu-kvm \
+    virtinst \
+    virt-viewer \
+    libcanberra-gtk-module \
+    libcanberra-gtk3-module \
+    packagekit-gtk3-module \
+    && apt-get -y autoremove \
+    && apt-get -y clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Setup vscode stuff
 WORKDIR /sources/linux
