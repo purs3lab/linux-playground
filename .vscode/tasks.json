@@ -19,6 +19,64 @@
             "command": "/scripts/build-fs.sh",
             "problemMatcher": [],
             "group": "build",
+        }, 
+        { 
+            "label": "Start Kernel in QEMU",
+            "type": "process",
+            "command": "qemu-system-x86_64",
+            "args": [
+                "-smp",
+                "4",
+                "-kernel",
+                "/sources/linux/arch/x86_64/boot/bzImage",
+                "-append",
+                "nokaslr",
+                "-initrd",
+                "/staging/initramfs-busybox-x86.cpio.gz",
+                "-nographic"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "focus" : true,
+                "panel": "dedicated",
+            }
         },  
+        { 
+            "label": "(debug) Start Kernel in QEMU",
+            "type": "process",
+            "command": "qemu-system-x86_64",
+            "args": [
+                "-s",
+                "-S",
+                "-smp",
+                "4",
+                "-kernel",
+                "/sources/linux/arch/x86_64/boot/bzImage",
+                "-append",
+                "nokaslr",
+                "-initrd",
+                "/staging/initramfs-busybox-x86.cpio.gz",
+                "-nographic"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "focus" : true,
+                "panel": "dedicated",
+            }
+        },
+        {
+            "label": "(debug) Start GDB",
+            "type": "shell",
+            "command": "gdb", 
+            "args": [
+                "/sources/linux/vmlinux",
+            ],
+            "presentation": {
+                "reveal": "always",
+                "focus" : true,
+                "panel": "dedicated",
+            }
+
+        } 
     ]
 }

@@ -18,7 +18,7 @@ RUN tar xvjf busybox-1.32.1.tar.bz2
 
 # Setup GEF
 RUN wget -O /root/.gdbinit-gef.py -q http://gef.blah.cat/py 
-RUN echo source /root/.gdbinit-gef.py >> /root/.gdbinit
+RUN echo -e "source /root/.gdbinit-gef.py\ntarget remote:1234" >> /root/.gdbinit
 
 # initial build, so as to speed up development
 COPY ./scripts/build-k.sh /sources
