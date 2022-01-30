@@ -5,6 +5,7 @@ mkdir -p /staging/initramfs/fs
 
 cd /sources/linux
 make x86_64_defconfig
+./scripts/config -e DEBUG_INFO -e READABLE_ASM -e GDB_SCRIPTS
 make -j4 bzImage
 
 

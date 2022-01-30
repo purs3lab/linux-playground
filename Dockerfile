@@ -40,6 +40,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
 # Setup GEF
 RUN wget -O /root/.gdbinit-gef.py -q http://gef.blah.cat/py 
 RUN echo source /root/.gdbinit-gef.py >> /root/.gdbinit
+RUN echo source /source/linux/vmlinux-gdb.py >> /root/.gdbinit
 RUN echo target remote :1234 >> /root/.gdbinit
 ENV LC_CTYPE=C.UTF-8
 ENV LANG=C.UTF-8
