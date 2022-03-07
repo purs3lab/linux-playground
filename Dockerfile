@@ -43,11 +43,6 @@ COPY ./scripts/.gdbinit /root/.gdbinit
 ENV LC_CTYPE=C.UTF-8
 ENV LANG=C.UTF-8
 
-# Build the FS
-WORKDIR /sources
-COPY ./scripts/build-fs.sh /sources
-RUN /sources/build-fs.sh
-
 # Setup vscode stuff
 WORKDIR /sources/linux
 RUN git clone --depth=1 https://github.com/amezin/vscode-linux-kernel.git .vscode
@@ -55,3 +50,8 @@ RUN rm -rf .vscode/.git
 RUN python3 .vscode/generate_compdb.py
 COPY .vscode/tasks.json .vscode/tasks.json
 COPY .vscode/launch.json .vscode/launch.json
+
+# Build the FS
+WORKDIR /sources
+COPY ./scripts/build-fs.sh /sources
+RUN /sources/build-fs.sh

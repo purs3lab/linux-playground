@@ -29,7 +29,7 @@
                 "-kernel",
                 "/sources/linux/arch/x86_64/boot/bzImage",
                 "-append",
-                "nokaslr",
+                "\"console=ttyS0 nokaslr\"",
                 "-initrd",
                 "/staging/initramfs-busybox-x86.cpio.gz",
                 "-nographic"
@@ -53,7 +53,7 @@
                 "-kernel",
                 "/sources/linux/arch/x86_64/boot/bzImage",
                 "-append",
-                "nokaslr",
+                "\"console=ttyS0 nokaslr\"",
                 "-initrd",
                 "/staging/initramfs-busybox-x86.cpio.gz",
                 "-nographic"
