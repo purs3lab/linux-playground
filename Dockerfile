@@ -39,7 +39,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
 
 # Setup GEF
 RUN wget -O /root/.gdbinit-gef.py -q http://gef.blah.cat/py 
-COPY ./scripts/.gdbinit /root/.gdbinit
+COPY ./scripts/.gdbinit_gef /sources/.gdbinit_gef
+COPY ./scripts/.gdbinit_vscode /sources/.gdbinit_vscode
+COPY ./scripts/.gdbinit_vscode /root/.gdbinit
 ENV LC_CTYPE=C.UTF-8
 ENV LANG=C.UTF-8
 

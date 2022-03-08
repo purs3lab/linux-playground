@@ -80,6 +80,34 @@
 
         },
         {
+            "label": "(Advanced) Use vscode to debug",
+            "type": "shell",
+            "command": "cp", 
+            "problemMatcher": [],
+            "args": [
+                "/sources/.gdbinit_vscode",
+                "/root/.gdbinit"
+            ],
+            "presentation": {
+                "focus" : false,
+            }
+
+        },
+        {
+            "label": "(Advanced) Use gef to debug",
+            "type": "shell",
+            "command": "cp", 
+            "problemMatcher": [],
+            "args": [
+                "/sources/.gdbinit_gef",
+                "/root/.gdbinit"
+            ],
+            "presentation": {
+                "focus" : false,
+            }
+
+        },
+        {
             "label": "(Advanced) Generate compile_commands.json",
             "type": "process",
             "command": "python",
