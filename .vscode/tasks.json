@@ -46,17 +46,15 @@
             "command": "qemu-system-x86_64",
             "problemMatcher": [],
             "args": [
-                "-s",
-                "-S",
-                "-smp",
-                "4",
                 "-kernel",
                 "/sources/linux/arch/x86_64/boot/bzImage",
                 "-append",
-                "\"console=ttyS0 nokaslr\"",
+                "\"console=ttyS0 nokaslr init=/init\"",
                 "-initrd",
                 "/staging/initramfs-busybox-x86.cpio.gz",
-                "-nographic"
+                "-nographic",
+                "-s",
+                "-S",
             ],
             "presentation": {
                 "reveal": "always",
