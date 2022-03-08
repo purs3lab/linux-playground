@@ -12,7 +12,7 @@
             }
         }, 
         {
-            "label": "build-fs",
+            "label": "(Needed) build-fs",
             "type": "shell",
             "command": "/scripts/build-fs.sh",
             "problemMatcher": [],

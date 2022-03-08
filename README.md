@@ -33,24 +33,48 @@ Once started, this command will build the relevant container image and bring up 
 
 At this point your VScode window should contain the linux kernel sources.
 
+## Build the FileSystem (Important)
+
+Since we are trying to mount a basic filesystem, it needs to be built before you are able to start the playground. Once you are inside the container, you can build the filesystem by opening the command palette using <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and typing:  ``` Tasks: Run Task ```
+
+Which should give you a prompt with multiple options (This is the VSCode Tasks List). Select the ``` (Needed) build-fs ``` option. This should create the filesystem that would be used by the kernel.
+
+**Note** : If you want to run the same command without using vscode, you should be able to find a bash script at `/scripts/build-fs.sh`
+
 ## Rebuild the kernel
+
+On making changes to the kernel sources it's necessary to rebuild the kernel for the changes to take effect.
 
 Building the kernel is setup as the default build task. You can use the build shortcut  kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> to automatically start the kernel build.
 
 You can also start the build from the command palette by typing:
 ``` Tasks: Run Build Task ```
 
-## Debug the kernel
+## Debugging the kernel
 
-To debug the kernel, you need to first start the kernel in QEMU on debug mode. This is done by bringing up the command palette and typing:
-``` Tasks: Run Task ```
+To debug the kernel, you need to first start the kernel in QEMU on debug mode. This is done by bringing up the command palette and typing: ``` Tasks: Run Task ```
 
 Which should give you a prompt with multiple options. Select the `(debug) Start Kernel in QEMU` option. This should open up a new console where the Kernel is running.
 If there are no errors, and you see no output on the console that means that kernel is waiting for the GDB stub to be connected.
 
 > **Note** : You need to start the kernel first always before connecting to it with GDB. 
 
-Now, debugging the kernel is done using GDB (We use a modified version called GEF, which is a enhanced fork of GDB). To start the debugger you need to again open the command palette and type: 
+### Debugging inside VS Code
+
+The default way of debugging is using the InBuilt VScode Native Debugger. This allows you to place breakpoints in the source code using VSCode itself.
+
+To start the VScode debugger, you can press the <kbd>F5</kbd> key, or you can also type: ``` Debug: Start Debugging ``` in the Command Palette.
+
+This should bring up a bunch of options on top of the screen for debugging. As well as a details in the `Debug Console` tab adjecent to the `Terminal` tab on the integrated terminal pop-up.
+
+**Note** : To switch back to Vscode debugging mode, from the gdb debugging mode, you need to run the ```(Advanced) Use vscode to debug``` task from the Vscode Tasks List.
+
+### Debugging using GDB-Gef
+
+**Note** : To switch to GDB-GEF debugging mode, from the default VScode debugging mode, you need to run the ```(Advanced) Use gef to debug``` task from the Vscode Tasks List.
+
+
+Now, To debug the kernel using GDB (We use a modified version called GEF, which is a enhanced fork of GDB). To start the debugger you need to again open the command palette and type: 
 ``` Tasks: Run Task ```
 
 Now from the prompt you need to select the `(debug) Start GDB` option. This should open up a new console where the debugger is running.
