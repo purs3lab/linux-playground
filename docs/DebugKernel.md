@@ -4,11 +4,11 @@ To debug the kernel, you need to first start the kernel in QEMU on debug mode.
 
 This is done by bringing up the command palette and typing: ``` Tasks: Run Task ```
 
-![runtasks](./images/RunTasks.png)
+![runtasks](../images/RunTasks.png)
 
 Which should give you a prompt with multiple options. Select the `(debug) Start Kernel in QEMU` option. 
 
-![advance](./images/Advance.png)
+![advance](../images/Advance.png)
 
 This should open up a new console where the Kernel is running.
 
@@ -30,7 +30,7 @@ Which should give you a prompt with multiple options. Select the `(debug) Start 
 
 To switch to Vscode debugging mode, from the gdb debugging mode, you need to run the ```(Advanced) Use vscode to debug``` task from the Vscode Tasks List.
 
-![vscodesetup](./images/DebugVSCode.png)
+![vscodesetup](../images/DebugVSCode.png)
 
 #### Start debugging
 
@@ -38,14 +38,14 @@ To start the VScode debugger, you can press the <kbd>F5</kbd> key.
 
 You can pause the debugger, i.e., break into running kernel by pressing the "Pause" button at the top. Once you press it, you should see the following screen:
 
-![vscodedebug](./images/VSCodePause.png)
+![vscodedebug](../images/VSCodePause.png)
 
 Now, you can put a break point anywhere and work with kernel. For instance, 
 1) I put a break point in `fork.c` as shown below and then I press resume.
 
 2) Next, try running `ls` in the QEMU terminal and you should see the break point in fork hit as shown below:
 
-![DebugFork](./images/DebugFork.png)
+![DebugFork](../images/DebugFork.png)
 
 
 ### Debugging using GDB-Gef
