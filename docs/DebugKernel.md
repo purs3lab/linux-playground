@@ -4,11 +4,7 @@ To debug the kernel, you need to first start the kernel in QEMU on debug mode.
 
 This is done by bringing up the command palette and typing: ``` Tasks: Run Task ```
 
-![runtasks](../images/RunTasks.png)
-
 Which should give you a prompt with multiple options. Select the `(debug) Start Kernel in QEMU` option. 
-
-![advance](../images/Advance.png)
 
 This should open up a new console where the Kernel is running.
 
