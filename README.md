@@ -56,7 +56,27 @@ The VSCode will restart and you will see tthe following message at the bottom ri
 This may take a while. Once this process is done you should get your workspace now open inside the container. 
 If you open a terminal from inside VS Code you should get a prompt from inside the container and everything.
 
-At this point your VScode window should contain the linux kernel sources.
+At this point your VScode window should contain the linux kernel sources and you should see the following:
+
+
+![StartingDocker](./images/afterSetup.png)
+
+
+### Build FS Image
+
+Since we are trying to mount a basic filesystem, it needs to be built before you are able to start the playground. 
+
+Once you are inside the container, you can build the filesystem by opening the command palette using <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and typing:  ``` Tasks: Run Task ```
+
+![runtasks](./images/RunTasks.png)
+
+Which should give you a prompt with multiple options (This is the VSCode Tasks List). 
+
+![advance](./images/Advance.png)
+
+Select the ``` (Needed) build-fs ``` option. This should create the filesystem that would be used by the kernel.
+
+**Note** : If you want to run the same command without using vscode, you should be able to find a bash script at `/scripts/build-fs.sh`
 
 ## Next steps
 
