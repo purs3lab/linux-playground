@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Once the previous launch succeeded and you see on screen the
+            // QEMU window waiting for the debugger, run this configuration,
+            // which will attach the visual debugger of VS Code to your
+            // kernel instance running in the emulator.
+            "name": "(gdb) Attach to QEMU Kernel",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "vmlinux",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "symbolSearchPath": "${workspaceRoot}",
+            "miDebuggerServerAddress": "localhost:1234",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+            ],
+        },
+    ]
+}
