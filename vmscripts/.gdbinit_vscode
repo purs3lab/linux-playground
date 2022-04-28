@@ -1,0 +1,2 @@
+add-auto-load-safe-path $HOME/playground/sources/linux/scripts/gdb/vmlinux-gdb.py
+source $HOME/playground/source/linux/vmlinux-gdb.py
