@@ -54,7 +54,7 @@ then
     git clone --depth=1 https://github.com/amezin/vscode-linux-kernel.git .vscode
     rm -rf .vscode/.git
     python3 .vscode/generate_compdb.py
-    cp $HOME/playground/linux-playground/.vscode/launch.json $HOME/playground/sources/linux/launch.json
+    cp $HOME/playground/linux-playground/vmscripts/launch.json $HOME/playground/sources/linux/.vscode/launch.json
     
     # Run the new build FS
     $HOME/playground/linux-playground/vmscripts/build-fs.sh
