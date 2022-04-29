@@ -19,7 +19,10 @@ then
 
     mkdir -p $HOME/playground
     cd $HOME/playground
-    git clone https://github.com/purs3lab/linux-playground.git    
+    git clone https://github.com/purs3lab/linux-playground.git
+    cd linux-playground
+    git checkout playground-vm
+    cd $HOME/playground
 
     mkdir -p $HOME/playground/sources
     cd $HOME/playground/sources
@@ -40,9 +43,9 @@ then
     libcanberra-gtk-module \
     libcanberra-gtk3-module \
     packagekit-gtk3-module \
-    && apt-get -y autoremove \
-    && apt-get -y clean \
-    && rm -rf /var/lib/apt/lists/*
+    && sudo apt-get -y autoremove \
+    && sudo apt-get -y clean \
+    && sudo rm -rf /var/lib/apt/lists/*
 
     # build kernel
     $HOME/playground/linux-playground/vmscripts/build-k.sh

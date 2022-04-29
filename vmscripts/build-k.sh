@@ -5,7 +5,7 @@ mkdir -p $HOME/playground/staging/initramfs/fs
 
 cd $HOME/playground/sources/linux
 make x86_64_defconfig
-$HOME/playground/scripts/config -e DEBUG_INFO -e READABLE_ASM -e GDB_SCRIPTS
+./scripts/config -e DEBUG_INFO -e READABLE_ASM -e GDB_SCRIPTS
 make -j4 bzImage
 make scripts_gdb
 
