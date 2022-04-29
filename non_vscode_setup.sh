@@ -19,7 +19,10 @@ then
 
     mkdir -p $HOME/playground
     cd $HOME/playground
-    git clone https://github.com/purs3lab/linux-playground.git    
+    git clone https://github.com/purs3lab/linux-playground.git
+    cd linux-playground
+    git checkout playground-vm
+    cd $HOME/playground
 
     mkdir -p $HOME/playground/sources
     cd $HOME/playground/sources
