@@ -15,9 +15,7 @@ We expect the machine to have atleast 5 GB of free disk space.
 
 
 #### Docker and utils
-```
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
-```
+* Follow [official instructions](https://docs.docker.com/engine/install/ubuntu/)
 ##### Add your user to the docker group
  
 - Create docker group : ```sudo groupadd docker```
