@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 # Download kernel
 RUN mkdir -p /sources
 WORKDIR /sources
-RUN git clone --depth=1 https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+RUN git clone --depth=1 -b v6.6 https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 RUN wget https://busybox.net/downloads/busybox-1.32.1.tar.bz2
 RUN tar xvjf busybox-1.32.1.tar.bz2
 
