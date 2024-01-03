@@ -5,14 +5,15 @@ ENV TZ=America/New_York
 ENV PYTHONIOENCODING=utf8
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update
-RUN apt-get install -y wget git qemu-system qemu-utils python3 python3-pip \
-        gcc libelf-dev libssl-dev bc flex bison vim bzip2 cpio gdb curl
+RUN apt-get update && apt-get install -y \
+    wget git qemu-system qemu-utils python3 python3-pip \
+    gcc libelf-dev libssl-dev bc flex bison vim bzip2 cpio gdb curl \
+    && rm -rf /var/lib/apt/lists/*
 
 # Download kernel
 RUN mkdir -p /sources
 WORKDIR /sources
-RUN git clone --depth=1 https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+RUN git clone --depth=1 -b v6.6 https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 RUN wget https://busybox.net/downloads/busybox-1.32.1.tar.bz2
 RUN tar xvjf busybox-1.32.1.tar.bz2
 
@@ -21,8 +22,8 @@ COPY ./scripts/build-k.sh /sources
 RUN /sources/build-k.sh
 
 # Qemu-KVM, needed for testing kernels inside a VM
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
-    && apt-get -y install \
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y install \
     iptables \
     libgl1-mesa-dri \
     libgl1-mesa-glx \
