@@ -108,7 +108,7 @@
         {
             "label": "(Advanced) Generate compile_commands.json",
             "type": "process",
-            "command": "python",
+            "command": "python3",
             "args": [
                 "${workspaceRoot}/.vscode/generate_compdb.py"
             ],
