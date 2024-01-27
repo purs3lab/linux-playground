@@ -30,7 +30,7 @@ To switch to Vscode debugging mode, from the gdb debugging mode, you need to run
 
 #### Start debugging
 
-To start the VScode debugger, you can press the <kbd>F5</kbd> key.
+To start the VScode debugger, open any source file (e.g. `fork.c`), then press the <kbd>F5</kbd> key.
 
 You can pause the debugger, i.e., break into running kernel by pressing the "Pause" button at the top. Once you press it, you should see the following screen:
 

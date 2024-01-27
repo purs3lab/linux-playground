@@ -57,4 +57,5 @@ COPY .vscode/launch.json .vscode/launch.json
 # Build the FS
 WORKDIR /sources
 COPY ./scripts/build-fs.sh /sources
+COPY ./scripts/init /scripts/init
 RUN /sources/build-fs.sh

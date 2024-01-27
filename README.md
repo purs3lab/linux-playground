@@ -1,13 +1,13 @@
 # linux-playground
 
-This is a playground to play with the Linux kernel, providing a easy to build and debug kernel inside a Docker container.
+This is a playground to play with the Linux kernel, providing an easy way to build and debug kernel inside a Docker container.
 
-> The following steps are verified on Ubuntu 20.04, x86-64 machine.
+> The following steps are verified on Ubuntu 22.04, x86-64 machine.
 
 ## Prerequisites
 The following are the packages and tools that are required to use this repo.
 ### Resources
-We expect the machine to have atleast 5 GB of free disk space.
+We expect the machine to have at least 8 GB of free disk space.
 
 #### VScode
 * Install VSCode by following the [official instructions](https://code.visualstudio.com/docs/setup/linux).
@@ -47,7 +47,7 @@ Click on **Reopen in Container**
 
 This command will build the relevant container image and bring up the workspace in the new environment. 
 
-The VSCode will restart and you will see tthe following message at the bottom right of the window
+The VSCode will restart and you will see the following message at the bottom right of the window
 
 ![startingcontainer](./images/startingDev.png)
 

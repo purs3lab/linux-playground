@@ -16,7 +16,6 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "symbolSearchPath": "${fileDirname}",
             "miDebuggerServerAddress": "localhost:1234",
             "setupCommands": [
                 {
