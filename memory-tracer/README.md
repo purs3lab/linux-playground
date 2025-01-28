@@ -2,8 +2,10 @@ This tool works by using eBPF kernel hooks to instrument the kernel allocation a
 
 ## Install Dependencies
 ```sh
-sudo apt install libbpf-dev bpftool bpfcc-tools bpftrace
+sudo apt install libbpf-dev bpftool bpfcc-tools bpftrace build-essential clang llvm
 ```
+
+You may need to install `bpftools` from `https://github.com/libbpf/bpftool`
 
 ## Running the tracer.
 
