@@ -1,11 +1,11 @@
 This tool works by using eBPF kernel hooks to instrument the kernel allocation and fault handlers. 
 
 ## Install Dependencies
+NOTE: You would need to re run the first command if bpf tool throws kernel version errors to reinstall bpftool for the version of kernel you are running. 
 ```sh
-sudo apt install libbpf-dev bpftool bpfcc-tools bpftrace build-essential clang llvm
+sudo apt install linux-tools-common linux-tools-generic linux-tools-$(uname -r) 
+sudo apt install libbpf-dev bpfcc-tools bpftrace build-essential clang llvm
 ```
-
-You may need to install `bpftools` from `https://github.com/libbpf/bpftool`
 
 ## Running the tracer.
 
