@@ -1,14 +1,14 @@
 .DEFAULT_GOAL := all
 
-all: sample
+all: memorytest
 
-sample:
-	gcc -static sample.c -o sample
+memorytest:
+	gcc -static sample.c -o memorytest
 
 clean:
-	rm -rf sample
+	rm -rf memorytest
 
 copy-to-fs: all
 	mkdir -p /staging/initramfs/fs/usermode
-	cp sample /staging/initramfs/fs/usermode
+	cp memorytest /staging/initramfs/fs/usermode
 
