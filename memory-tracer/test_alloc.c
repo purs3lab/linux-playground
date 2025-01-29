@@ -30,12 +30,19 @@ int main() {
     printf("PID: %d\n", getpid());
     log_msg("Touching grass...");
     
-    sleep(10);
+    log_msg("Enable Tracing and press enter...");
+    getchar();
 
     // Check the heap region allocations using malloc for 10 pages. 
     log_msg("Testing malloc...");
     char *buf1 = malloc(PAGE_SIZE * NUM_PAGES);
+    log_msg("We just mallocced. We will start accessing now. Press enter...");
+    getchar();
+    
     access_memory(buf1, PAGE_SIZE * NUM_PAGES);
+
+    log_msg("Finished Accessing. Trying to mmap. Press enter...");
+    getchar();
     
     // Check the mmap region allocations using mmap for 10 pages.
     log_msg("Testing mmap...");
@@ -48,12 +55,21 @@ int main() {
         free(buf1);
         return 1;
     }
+
+    log_msg("Finished mmap. Will start accessing now. Press enter...");
+    getchar();
+    
     access_memory(buf2, PAGE_SIZE * NUM_PAGES);
+
+    log_msg("Will free malloced memory. Press enter...");
+    getchar();
 
     // We are disciplined cavemen so we free the memory we allocated. 
     free(buf1);
+    log_msg("Will release mmaped memory. Press enter...");
+    getchar();
     munmap(buf2, PAGE_SIZE * NUM_PAGES);
-    
-    log_msg("Touching grass completed. Going back into cave");
+    log_msg("Finished. Press enter...");
+    getchar();
     return 0;
 }
