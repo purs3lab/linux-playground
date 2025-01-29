@@ -1,8 +1,10 @@
-This tool works by using eBPF kernel hooks to instrument the kernel allocation and fault handlers. 
+This is an independent tool to trace memory allocations in Linux kernel. This tool works by using eBPF kernel hooks to instrument the kernel allocation and fault handlers. 
+
+> The following steps are tested on Ubuntu 24.04.
 
 ## Install Dependencies
 ```sh
-sudo apt install libbpf-dev bpftool bpfcc-tools bpftrace build-essential clang llvm
+sudo apt install build-essential git libbpf-dev bpftool bpfcc-tools bpftrace build-essential clang llvm
 ```
 
 You may need to install `bpftools` from `https://github.com/libbpf/bpftool`
