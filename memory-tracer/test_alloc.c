@@ -30,9 +30,12 @@ int recurse_function(int depth) {
     if (depth == 0) {
         return;
     }
+    log_msg("Inside function...");
     char buf[PAGE_SIZE];
     memset(buf, depth, PAGE_SIZE);
     usleep(200000);
+    log_msg("Calling another function..press enter...");
+    getchar();
     return buf[0] + buf[4000] + recurse_function(depth - 1);
 }
 
