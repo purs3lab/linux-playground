@@ -26,12 +26,27 @@ void log_msg(const char *message) {
     printf("[%s] %s\n", buf, message);
 }
 
+int recurse_function(int depth) {
+    if (depth == 0) {
+        return;
+    }
+    char buf[PAGE_SIZE];
+    memset(buf, depth, PAGE_SIZE);
+    usleep(200000);
+    return buf[0] + buf[4000] + recurse_function(depth - 1);
+}
+
 int main() {
     printf("PID: %d\n", getpid());
     log_msg("Touching grass...");
     
     log_msg("Enable Tracing and press enter...");
     getchar();
+
+    // Check the heap region allocations using malloc for 10 pages. 
+    log_msg("Calling functions (which need stack space)..Press enter and see how kernel automatically allocates stack space.");
+    getchar();
+    recurse_function(4);    
 
     // Check the heap region allocations using malloc for 10 pages. 
     log_msg("Testing malloc...");
