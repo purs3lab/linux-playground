@@ -18,4 +18,4 @@ bpftool gen skeleton build/page_tracer.bpf.o > page_tracer.skel.h
 
 gcc -g -Wall -I. -Ibuild page_tracer.c -o build/page_tracer -lelf -lbpf
 
-gcc -g -Wall -I. -Ibuild test_alloc.c -o build/test_alloc
+gcc -no-pie -g -Wall -I. -Ibuild test_alloc.c -o build/test_alloc
