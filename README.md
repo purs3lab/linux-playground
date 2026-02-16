@@ -3,6 +3,8 @@
 This is a playground to play with the Linux kernel, providing an easy way to build and debug kernel inside a Docker container.
 
 > The following steps are verified on Ubuntu 22.04, x86-64 machine.
+> On Apple Silicon (arm64), the devcontainer cross-compiles an x86_64 kernel and runs it under QEMU TCG, which is supported but slower than native amd64.
+> On arm64, the image build skips the initial kernel/initramfs build; run the `build` and `(Needed) build-fs` tasks after the container starts.
 
 ## Prerequisites
 The following are the packages and tools that are required to use this repo.

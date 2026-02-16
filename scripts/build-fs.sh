@@ -1,5 +1,6 @@
 #!/bin/sh
-# build linux
+set -eu
+# build initramfs
 
 mkdir -p /staging/initramfs/fs
 

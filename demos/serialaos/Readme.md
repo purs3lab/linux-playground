@@ -6,7 +6,7 @@ TL;DR use the `/scripts/start-qemu-serial.sh` script, and run `nc localhost 6000
 With basic QEMU there's only one serial port
 
 ```
-qemu-system-x86_64 -smp 4 -kernel /sources/linux/arch/x86_64/boot/bzImage
+qemu-system-x86_64 -smp 4 -kernel /sources/linux/arch/x86/boot/bzImage
                           -initrd /staging/initramfs-busybox-x86.cpio.gz
                           -append "console=ttyS0 init=/init" -vnc :0 -k en-us
                           -nographic
@@ -21,7 +21,7 @@ qemu-system-x86_64 -smp 4 -kernel /sources/linux/arch/x86_64/boot/bzImage
 Adding the option to enable the second one (requires to run `nc localhost 6000` on a second shell not inside the docker container to start the VM)
 
 ```
-qemu-system-x86_64 -smp 4 -kernel /sources/linux/arch/x86_64/boot/bzImage
+qemu-system-x86_64 -smp 4 -kernel /sources/linux/arch/x86/boot/bzImage
                           -initrd /staging/initramfs-busybox-x86.cpio.gz
                           -append "console=ttyS0 init=/init" -vnc :0 -k en-us
                           -serial stdio -serial tcp::6000,server

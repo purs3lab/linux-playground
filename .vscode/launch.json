@@ -16,6 +16,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
+            "miDebuggerPath": "gdb-multiarch",
             "miDebuggerServerAddress": "localhost:1234",
             "setupCommands": [
                 {

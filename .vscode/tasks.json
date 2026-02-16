@@ -18,22 +18,11 @@
             "problemMatcher": [],
             "group": "build",
         }, 
-        { 
+        {
             "label": "(normal) Start Kernel in QEMU",
-            "type": "process",
-            "command": "qemu-system-x86_64",
+            "type": "shell",
+            "command": "/scripts/start-qemu.sh",
             "problemMatcher": [],
-            "args": [
-                "-smp",
-                "4",
-                "-kernel",
-                "/sources/linux/arch/x86_64/boot/bzImage",
-                "-append",
-                "\"console=ttyS0 nokaslr\"",
-                "-initrd",
-                "/staging/initramfs-busybox-x86.cpio.gz",
-                "-nographic"
-            ],
             "presentation": {
                 "reveal": "always",
                 "focus" : true,
@@ -42,20 +31,9 @@
         },  
         { 
             "label": "(debug) Start Kernel in QEMU",
-            "type": "process",
-            "command": "qemu-system-x86_64",
+            "type": "shell",
+            "command": "/scripts/debug-qemu.sh",
             "problemMatcher": [],
-            "args": [
-                "-kernel",
-                "/sources/linux/arch/x86_64/boot/bzImage",
-                "-append",
-                "\"console=ttyS0 nokaslr init=/init\"",
-                "-initrd",
-                "/staging/initramfs-busybox-x86.cpio.gz",
-                "-nographic",
-                "-s",
-                "-S",
-            ],
             "presentation": {
                 "reveal": "always",
                 "focus" : true,
@@ -65,7 +43,7 @@
         {
             "label": "(debug) Start GDB",
             "type": "shell",
-            "command": "gdb", 
+            "command": "gdb-multiarch", 
             "problemMatcher": [],
             "args": [
                 "/sources/linux/vmlinux",
