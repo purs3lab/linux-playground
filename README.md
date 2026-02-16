@@ -2,9 +2,7 @@
 
 This is a playground to play with the Linux kernel, providing an easy way to build and debug kernel inside a Docker container.
 
-> The following steps are verified on Ubuntu 22.04, x86-64 machine.
-> On Apple Silicon (arm64), the devcontainer cross-compiles an x86_64 kernel and runs it under QEMU TCG, which is supported but slower than native amd64.
-> On arm64, the image build skips the initial kernel/initramfs build; run the `build` and `(Needed) build-fs` tasks after the container starts.
+> Verified on Ubuntu 22.04 (x86-64) and macOS on Apple Silicon (arm64).
 
 ## Prerequisites
 The following are the packages and tools that are required to use this repo.
@@ -64,19 +62,28 @@ At this point your VScode window should contain the linux kernel sources and you
 
 ### Build FS Image
 
-Since we are trying to mount a basic filesystem, it needs to be built before you are able to start the playground. 
+Since we are trying to mount a basic filesystem, it needs to be built before you are able to start the playground.
 
 Once you are inside the container, you can build the filesystem by opening the command palette using <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and typing:  ``` Tasks: Run Task ```
 
 ![runtasks](./images/RunTasks.png)
 
-Which should give you a prompt with multiple options (This is the VSCode Tasks List). 
+Which should give you a prompt with multiple options (This is the VSCode Tasks List).
 
 ![advance](./images/Advance.png)
 
 Select the ``` (Needed) build-fs ``` option. This should create the filesystem that would be used by the kernel.
 
 **Note** : If you want to run the same command without using vscode, you should be able to find a bash script at `/scripts/build-fs.sh`
+
+### Apple Silicon (arm64)
+
+On arm64, the image build skips the kernel and initramfs builds. After the container starts, run these tasks in order via the command palette:
+
+1. `build` — cross-compiles the x86_64 kernel and busybox
+2. `(Needed) build-fs` — creates the initramfs
+
+QEMU runs under TCG (software emulation), so boot will be slower than on native x86-64.
 
 ## Next steps
 
